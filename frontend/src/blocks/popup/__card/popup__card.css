@@ -1,0 +1,7 @@
+.popup__card {
+    padding: 0;
+    position: relative;
+    margin: auto auto;
+    background: #FFF;
+    display: flex;
+}
