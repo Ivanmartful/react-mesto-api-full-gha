@@ -40,5 +40,5 @@ class AuthApi {
         }).then((res) => this._checkError(res));
     }
 }
-const authApi = new AuthApi("http://api.domainname.ivan.nomoreparties.sbs");
+const authApi = new AuthApi("https://api.domainname.ivan.nomoreparties.sbs");
 export default authApi;

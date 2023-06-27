@@ -81,6 +81,6 @@ class Api {
     }
 }
 
-const api = new Api('http://api.domainname.ivan.nomoreparties.sbs'); 
+const api = new Api('https://api.domainname.ivan.nomoreparties.sbs'); 
 
 export default api;
