@@ -13,7 +13,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 130.193.52.245
+IP 130.193.52.245
 
 Frontend https://domainname.ivan.nomoreparties.sbs
 
