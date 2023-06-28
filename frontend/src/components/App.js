@@ -47,7 +47,7 @@ function App() {
     setIsAddPlacePopupOpen(true);
   }
 
-  function handleCardDeleteClick() {
+  function handleCardDeleteClick(cardId) {
     setIsDeletePopupOpen(true);
   }
 
@@ -211,7 +211,7 @@ function App() {
               onEditAvatar={handleEditAvatarClick}
               onEditProfile={handleEditProfileClick}
               onAddPlace={handleAddPlaceClick}
-              onCardDelete={handleCardDeleteClick}
+              onCardDelete={handleCardDelete}
               onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               cards={cards}
