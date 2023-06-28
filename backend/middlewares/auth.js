@@ -13,7 +13,7 @@ module.exports = (req, res, next) => {
       throw new NotAuthorizedError(NOT_AUTHORIZED_MESSAGE);
     }
     const token = authorization.replace('Bearer ', '');
-    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'super-strong-secret');
+    payload = jwt.verify(token, NODE_ENV === 'production' ? JWT_SECRET : 'dev-secret');
   } catch (err) {
     next(err);
   }
