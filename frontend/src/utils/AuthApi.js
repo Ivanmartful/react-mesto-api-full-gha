@@ -22,7 +22,6 @@ class AuthApi {
     }
 
     loginUser(email, password) {
-        console.log(this._basePath);
         return fetch(`${this._basePath}/signin`, {
             method: "POST",
             headers: {
