@@ -2,7 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const helmet = require('helmet');
 const { errors } = require('celebrate');
-const cors = require('./middlewares/cors');
+const cors = require('cors');
+const corsErr = require('./middlewares/cors');
 const router = require('./routes/router');
 const auth = require('./middlewares/auth');
 const { createUser, login } = require('./controllers/users');
@@ -20,7 +21,7 @@ const { PORT = 3000 } = process.env;
 const app = express();
 
 app.use(express.json());
-app.use(cors);
+app.use(cors());
 app.use(requestLogger);
 
 app.post('/signup', validationCreateUser, createUser);
@@ -33,6 +34,7 @@ app.get('/crash-test', () => {
 });
 app.use(router);
 app.use(errorLogger);
+app.use(corsErr);
 app.use('/*', (req, res, next) => {
   next(new NotFoundError(NOT_FOUND_MESSAGE));
 });
