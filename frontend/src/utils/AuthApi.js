@@ -6,7 +6,9 @@ class AuthApi {
     _checkError(res) {
         if (res.ok) {
             return res.json();
+
         }
+        console.log(this._basePath);
         return Promise.reject(`Ошибка: ${res.status}`);
     }
 
