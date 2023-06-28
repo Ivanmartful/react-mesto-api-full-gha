@@ -211,7 +211,7 @@ function App() {
               onEditAvatar={handleEditAvatarClick}
               onEditProfile={handleEditProfileClick}
               onAddPlace={handleAddPlaceClick}
-              onCardDelete={handleCardDelete}
+              onCardDelete={handleCardDeleteClick}
               onCardClick={handleCardClick}
               onCardLike={handleCardLike}
               cards={cards}
@@ -245,6 +245,7 @@ function App() {
         <PopupWithForm
           isOpen={isDeletePopupOpen}
           onClose={closeAllPopups}
+          onSubmit={handleCardDelete}
           title={"Вы уверены?"}
           buttonText={"Да"}
           name={"delete"}
