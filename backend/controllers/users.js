@@ -36,7 +36,6 @@ module.exports.createUser = (req, res, next) => {
   const {
     name, about, avatar, email, password,
   } = req.body;
-  if (!password) throw new BadRequestError(BAD_REQUEST_MESSAGE);
   bcrypt.hash(password, 10)
     .then((hash) => {
       User
@@ -123,10 +122,6 @@ module.exports.getCurrentUser = (req, res, next) => {
       res.status(OK).send(user);
     })
     .catch((err) => {
-      if (err.name === 'CastError') {
-        next(new BadRequestError(BAD_REQUEST_MESSAGE));
-      } else {
-        next(err);
-      }
+      next(err);
     });
 };

@@ -42,14 +42,10 @@ module.exports.deleteCard = (req, res, next) => {
     .then((card) => {
       if (card.owner.equals(req.user._id)) {
         Card
-          .findByIdAndRemove(req.params.cardId)
-          .then((newCard) => res.status(OK).send(newCard))
+          .deleteOne(card)
+          .then(() => res.status(OK).send(card))
           .catch((err) => {
-            if (err.name === 'CastError') {
-              next(new BadRequestError(BAD_REQUEST_MESSAGE));
-            } else {
-              next(err);
-            }
+            next(err);
           });
       } else next(new ForbiddenError(FORBIDDEN_MESSAGE));
     })

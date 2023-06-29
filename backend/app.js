@@ -34,11 +34,11 @@ app.get('/crash-test', () => {
   }, 0);
 });
 app.use(router);
-app.use(errorLogger);
-app.use(corsErr);
 app.use('/*', (req, res, next) => {
   next(new NotFoundError(NOT_FOUND_MESSAGE));
 });
+app.use(errorLogger);
+app.use(corsErr);
 app.use(helmet());
 app.use(errors());
 app.use((err, req, res, next) => {
